@@ -1,0 +1,21 @@
+# Private JCOS areas
+05_PROJECTS/
+06_LIBRARY/PROMPTS/PROJECTS/
+06_LIBRARY/TEMPLATES/
+07_QA/
+08_HISTORY/
+tmp/
+.playwright-mcp/
+
+# Local and temporary files
+~$*
+*.tmp
+*.bak
+.env
+.env.*
+.DS_Store
+Thumbs.db
+
+# Generated document formats are distributed separately
+*.docx
+*.pdf
