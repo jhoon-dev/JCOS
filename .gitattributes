@@ -1,0 +1,7 @@
+# Pin checkout line endings so the public byte hashes are portable.
+* text=auto eol=lf
+
+# Preserve the bytes of the existing Content/Automation working baselines.
+# Future candidate versions use LF through the default above.
+03_CONTENT_SYSTEM/**/*_v2.0.0.md text eol=crlf
+04_AUTOMATION/**/*_v2.0.0.md text eol=crlf

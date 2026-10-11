@@ -1,7 +1,11 @@
-# JCOS Rule ID System v2.0
+# JCOS Rule ID System v2.0.1-rc.1
 
-Version: 2.0  
-Status: REVIEW
+| 항목 | 값 |
+|---|---|
+| Document ID | FND-004 |
+| Version | 2.0.1-rc.1 |
+| Status | REVIEW |
+| Owner | JCOS Maintainers |
 
 ---
 
@@ -117,3 +121,9 @@ CORE-001: 사용자 승인 없이 MASTER를 변경하지 않는다.
 의미가 명확해지는 경미한 변경이면 동일 ID와 부 버전을 유지할 수 있다.
 
 MASTER의 정의나 적용 범위 자체가 바뀌면 새로운 규칙 ID 또는 주 버전을 사용한다.
+
+## 8. 공개 문서 ID와 규칙 ID
+
+FND·COR·DSG·CNT·AUT 문서 ID는 파일과 책임 영역을 식별합니다. CORE·WRT·RSH 등 규칙 ID는 문서 내부 판단 항목을 식별합니다. 문서 ID와 규칙 ID를 혼용하지 않습니다. FND-001~006의 공개 경로는 DOCUMENT_REGISTER와 document_registry.json에서 확인합니다.
+
+동일 규칙의 과거·후보 버전은 같은 규칙 ID를 유지할 수 있습니다. 고유성 검사는 선택한 활성 기준본 집합 안에서 수행합니다.

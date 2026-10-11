@@ -1,0 +1,18 @@
+{
+  "request_id": "",
+  "project_ref": "project.json",
+  "profile": "SIMPLE",
+  "purpose": "",
+  "audience": "",
+  "output_language": "",
+  "source_text": "",
+  "constraints": {
+    "add_new_facts": false,
+    "external_side_effects": false,
+    "change_master": false
+  },
+  "output_contract": {
+    "required_fields": ["status", "revised_text", "checks", "limitations"],
+    "completion_criteria": "Preserve meaning and requested action; return revised text without external side effects."
+  }
+}

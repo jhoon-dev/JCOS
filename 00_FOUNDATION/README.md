@@ -1,5 +1,12 @@
 # JCOS Foundation
 
+| 항목 | 값 |
+|---|---|
+| Document ID | FND-001 |
+| Version | 2.1.0 |
+| Status | REVIEW |
+| Owner | JCOS Maintainers |
+
 Foundation은 JCOS의 구조와 문서 관리 원칙을 설명하는 시작점입니다.
 
 ## 문서

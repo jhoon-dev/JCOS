@@ -1,0 +1,18 @@
+{
+  "request_id": "example-edit-001",
+  "project_ref": "project.json",
+  "profile": "SIMPLE",
+  "purpose": "가상의 내부 안내 문장을 짧고 명확하게 수정",
+  "audience": "가상 프로젝트의 내부 검토자",
+  "output_language": "ko",
+  "source_text": "검토를 완료하신 이후에 의견을 전달해 주시면 감사하겠습니다.",
+  "constraints": {
+    "add_new_facts": false,
+    "external_side_effects": false,
+    "change_master": false
+  },
+  "output_contract": {
+    "required_fields": ["status", "revised_text", "checks", "limitations"],
+    "completion_criteria": "의미와 요청 행동을 유지하고 외부 부작용 없이 수정문을 반환"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "project_id": "example-local-editing",
+  "name": "Example Local Editing",
+  "purpose": "새로운 사실을 추가하지 않고 가상의 내부 안내 문장을 명확하게 수정",
+  "scope": "LOCAL_INTERNAL_DRAFT",
+  "external_side_effects": false,
+  "baseline_refs": ["COR-001", "COR-002", "COR-005"],
+  "master": null,
+  "note": "전체 JCOS 운영 계약을 구현한 프로젝트가 아닌 공개 학습 예제"
+}

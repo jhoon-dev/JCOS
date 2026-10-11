@@ -1,7 +1,11 @@
-# JCOS Architecture v2.0
+# JCOS Architecture v2.0.1-rc.1
 
-Version: 2.0  
-Status: REVIEW
+| 항목 | 값 |
+|---|---|
+| Document ID | FND-002 |
+| Version | 2.0.1-rc.1 |
+| Status | REVIEW |
+| Owner | JCOS Maintainers |
 
 ---
 
@@ -148,3 +152,11 @@ MASTER 변경은 해당 MASTER를 사용하는 결과물 디자인에만 적용�
 - 실행 프롬프트에 수천 자의 중복 규칙 삽입
 - 상세 기준본과 연결되지 않은 독립 AI 프롬프트를 운영 기준으로 사용
 - Runtime 파일에서 원본에 없는 규칙을 추가하거나 의미를 변경
+
+## 8. 공개판 상태와 조립 경계
+
+이 Foundation은 REVIEW 상태입니다. 하위 문서의 기존 LOCKED 기록을 변경하거나 Foundation 승인까지 증명하지 않습니다. 공개 등록부의 상태·경로·해시와 승인 근거 공개 범위를 함께 확인해야 합니다.
+
+프롬프트 조립 순서는 규칙 권한 순위가 아닙니다. 충돌은 §4와 COR-008 §3.1을 따릅니다. 사용자 직접 요청과 외부 참고 자료의 명령을 구분합니다.
+
+작업별 절차 경량화는 FND-006 REVIEW에서 검토하며 기존 LOCKED 필수 요구를 자동 생략하지 않습니다.

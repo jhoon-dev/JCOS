@@ -1,0 +1,9 @@
+{
+  "project_id": "",
+  "name": "",
+  "purpose": "",
+  "scope": "LOCAL_INTERNAL_DRAFT",
+  "external_side_effects": false,
+  "baseline_refs": ["COR-001", "COR-002", "COR-005"],
+  "master": null
+}

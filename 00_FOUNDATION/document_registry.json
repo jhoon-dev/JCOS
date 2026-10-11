@@ -1,0 +1,491 @@
+{
+  "schema_version": 1,
+  "updated": "2026-10-02",
+  "hash_basis": "SHA-256 of exact public file bytes; not approval evidence",
+  "documents": [
+    {
+      "id": "FND-001",
+      "version": "2.1.0",
+      "status": "REVIEW",
+      "path": "00_FOUNDATION/README.md",
+      "sha256": "69acb3a13364dca114aaed195707982686c8a9d0fde7ff383fa1aa6ae9ef7249",
+      "active": true,
+      "depends_on": [],
+      "rule_count": 0
+    },
+    {
+      "id": "FND-002",
+      "version": "2.0.1-rc.1",
+      "status": "REVIEW",
+      "path": "00_FOUNDATION/ARCHITECTURE.md",
+      "sha256": "7320f8a1335400b6a3b4a2e5ba71aeabbf8dce6e39ac7ef3acbb1e27eeb22af9",
+      "active": true,
+      "depends_on": [],
+      "rule_count": 0
+    },
+    {
+      "id": "FND-003",
+      "version": "2.1.0",
+      "status": "REVIEW",
+      "path": "00_FOUNDATION/DOCUMENT_REGISTER.md",
+      "sha256": "7098773cce8b9400f431f23a38cbeae2f01594a94064f9e5b00c993918dd1de3",
+      "active": true,
+      "depends_on": [],
+      "rule_count": 0
+    },
+    {
+      "id": "FND-004",
+      "version": "2.0.1-rc.1",
+      "status": "REVIEW",
+      "path": "00_FOUNDATION/RULE_ID_SYSTEM.md",
+      "sha256": "f1c0b318d0b8ec0239b6743f6e30a9552ddd5a564527fa599d6e29a7cd4145a4",
+      "active": true,
+      "depends_on": [],
+      "rule_count": 0
+    },
+    {
+      "id": "FND-005",
+      "version": "2.1.0",
+      "status": "REVIEW",
+      "path": "00_FOUNDATION/ROADMAP.md",
+      "sha256": "dbef5304869763c52c5c5cea341ebf26d4455172c632b59e42e5e1737c401fc2",
+      "active": true,
+      "depends_on": [],
+      "rule_count": 0
+    },
+    {
+      "id": "FND-006",
+      "version": "0.1.0-rc.1",
+      "status": "REVIEW",
+      "path": "00_FOUNDATION/APPLICATION_PROFILES.md",
+      "sha256": "23e4e02db988a1f64399b470f9ef26a02b579a8f186bd2710e0a9a20a03775ea",
+      "active": false,
+      "depends_on": [],
+      "rule_count": 0
+    },
+    {
+      "id": "COR-001",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "01_CORE/COR-001/COR-001_CORE_INSTRUCTIONS_v2.0.0.md",
+      "sha256": "95b29dd5fb9f849577102a81c4982982672d6b2dfcfee00728172b10ae1e3741",
+      "active": true,
+      "depends_on": [
+        "FND-002",
+        "FND-003",
+        "FND-004"
+      ],
+      "rule_count": 100
+    },
+    {
+      "id": "COR-002",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "01_CORE/COR-002/COR-002_WRITING_PRINCIPLES_v2.0.0.md",
+      "sha256": "cb09edd9d3c19e589dfa12af696559993474ac09a2798a96cf6e7d4fcc82d35d",
+      "active": true,
+      "depends_on": [
+        "COR-001"
+      ],
+      "rule_count": 50
+    },
+    {
+      "id": "COR-003",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "01_CORE/COR-003/COR-003_RESEARCH_PRINCIPLES_v2.0.0.md",
+      "sha256": "da0be5d2b34ce45dbc2d652ec45c238a08390dc6cd8baf0c73947fbea79e9b7c",
+      "active": true,
+      "depends_on": [
+        "COR-001"
+      ],
+      "rule_count": 50
+    },
+    {
+      "id": "COR-004",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "01_CORE/COR-004/COR-004_SOURCE_POLICY_v2.0.0.md",
+      "sha256": "d158a145cb7aef318149aa0e978a9af5d217ee1ece2dac405377ca553fbcdd1b",
+      "active": true,
+      "depends_on": [
+        "COR-001",
+        "COR-003"
+      ],
+      "rule_count": 50
+    },
+    {
+      "id": "COR-005",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "01_CORE/COR-005/COR-005_QUALITY_GATE_v2.0.0.md",
+      "sha256": "8c19c131a3c389b74b6ae15b0b4fa4ef94d5364ab7e2c74302778dd37e0b164e",
+      "active": true,
+      "depends_on": [
+        "COR-001"
+      ],
+      "rule_count": 50
+    },
+    {
+      "id": "COR-006",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "01_CORE/COR-006/COR-006_FILE_DELIVERY_v2.0.0.md",
+      "sha256": "2117a9e60d6ccfc4126abe97f6ca44ed53d2de1f3da610b9524687c545ceaf77",
+      "active": true,
+      "depends_on": [
+        "COR-001",
+        "COR-005"
+      ],
+      "rule_count": 50
+    },
+    {
+      "id": "COR-007",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "01_CORE/COR-007/COR-007_VERSION_POLICY_v2.0.0.md",
+      "sha256": "dea229f05d80aa7e9a972d416903be143f6622ee8089bb64b96bbd97bee98b65",
+      "active": true,
+      "depends_on": [
+        "COR-001",
+        "COR-005",
+        "COR-006"
+      ],
+      "rule_count": 50
+    },
+    {
+      "id": "COR-008",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "01_CORE/COR-008/COR-008_DECISION_RULES_v2.0.0.md",
+      "sha256": "7c8dc81eb0f8d0711435aa86877e6047109742d1caaea6af7f9b0d3cb41fc5b1",
+      "active": true,
+      "depends_on": [
+        "COR-001",
+        "COR-007"
+      ],
+      "rule_count": 50
+    },
+    {
+      "id": "DSG-001",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "02_DESIGN_SYSTEM/DSG-001/DSG-001_HTML_SYSTEM_v2.0.0.md",
+      "sha256": "7c8e8d4d1c2319c1c6ee4535887ae1e15fbd169d9fd5ac1aa15302ebdf33ec05",
+      "active": true,
+      "depends_on": [
+        "FND-002",
+        "FND-003",
+        "FND-005"
+      ],
+      "rule_count": 30
+    },
+    {
+      "id": "DSG-002",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "02_DESIGN_SYSTEM/DSG-002/DSG-002_DOCX_SYSTEM_v2.0.0.md",
+      "sha256": "356b915159ab7daa4cadab9a6426939a9d20273919a3b85c8a0eddbe03198803",
+      "active": true,
+      "depends_on": [
+        "FND-002",
+        "FND-003",
+        "FND-005"
+      ],
+      "rule_count": 30
+    },
+    {
+      "id": "DSG-003",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "02_DESIGN_SYSTEM/DSG-003/DSG-003_CSS_GOVERNANCE_v2.0.0.md",
+      "sha256": "cee1aae32a2199f7f98274dce3c1eea6016a5f30c26fcbcff71bc274ecc7597c",
+      "active": true,
+      "depends_on": [
+        "FND-002",
+        "FND-003",
+        "FND-005"
+      ],
+      "rule_count": 30
+    },
+    {
+      "id": "DSG-004",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "02_DESIGN_SYSTEM/DSG-004/DSG-004_COMPONENT_LIBRARY_v2.0.0.md",
+      "sha256": "5b90c90bb90613dd3d411a5f7c78250b9969348add0a38f9b67297f8fe4f4926",
+      "active": true,
+      "depends_on": [
+        "FND-002",
+        "FND-003",
+        "FND-005"
+      ],
+      "rule_count": 30
+    },
+    {
+      "id": "DSG-005",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "02_DESIGN_SYSTEM/DSG-005/DSG-005_IMAGE_SYSTEM_v2.0.0.md",
+      "sha256": "1d7c549aaac416e4e77542900e1bfb2146c53bed42ccfd461f67739ae5f9c0bc",
+      "active": true,
+      "depends_on": [
+        "COR-004",
+        "FND-002",
+        "FND-003",
+        "FND-005"
+      ],
+      "rule_count": 30
+    },
+    {
+      "id": "DSG-006",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "02_DESIGN_SYSTEM/DSG-006/DSG-006_THUMBNAIL_RULES_v2.0.0.md",
+      "sha256": "47d102fea09f3e450b4cf232f5976164e8db10548ca84ca37ea01d98502a47f5",
+      "active": true,
+      "depends_on": [
+        "COR-004",
+        "FND-002",
+        "FND-003",
+        "FND-005"
+      ],
+      "rule_count": 30
+    },
+    {
+      "id": "DSG-007",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "02_DESIGN_SYSTEM/DSG-007/DSG-007_BRAND_SYSTEM_v2.0.0.md",
+      "sha256": "4fbd938e20c774440c489c07ee35644f89fc82b0a3d0ded029f082663fe2bd5c",
+      "active": true,
+      "depends_on": [
+        "COR-007",
+        "FND-002",
+        "FND-003",
+        "FND-005"
+      ],
+      "rule_count": 30
+    },
+    {
+      "id": "CNT-001",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "03_CONTENT_SYSTEM/CNT-001/CNT-001_RESEARCH_WORKFLOW_v2.0.0.md",
+      "sha256": "e215029380be88e05313c8ab7d1dd654e729cdf513799eb5bcb09a4355097c27",
+      "active": true,
+      "depends_on": [
+        "COR-003",
+        "COR-004",
+        "COR-005",
+        "COR-007"
+      ],
+      "rule_count": 30
+    },
+    {
+      "id": "CNT-002",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "03_CONTENT_SYSTEM/CNT-002/CNT-002_WRITING_WORKFLOW_v2.0.0.md",
+      "sha256": "4abc883d470f84bb08c9628c7238997b687ba5feb191fe36e56b03f257d9634e",
+      "active": true,
+      "depends_on": [
+        "COR-002",
+        "COR-004",
+        "COR-005",
+        "CNT-001"
+      ],
+      "rule_count": 30
+    },
+    {
+      "id": "CNT-003",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "03_CONTENT_SYSTEM/CNT-003/CNT-003_EDITORIAL_WORKFLOW_v2.0.0.md",
+      "sha256": "b9bb6ddf125ac6522994fbb9be8d96951e5f92ad312db026c1f6dcb1605479fa",
+      "active": true,
+      "depends_on": [
+        "COR-002",
+        "COR-005",
+        "CNT-001",
+        "CNT-002"
+      ],
+      "rule_count": 30
+    },
+    {
+      "id": "CNT-004",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "03_CONTENT_SYSTEM/CNT-004/CNT-004_FACT_CHECKING_v2.0.0.md",
+      "sha256": "1dc61b4d3cb61e8564b5181127c15a37cba1a5e2bbb5c9a27b829e78aee37ffe",
+      "active": true,
+      "depends_on": [
+        "COR-004",
+        "COR-005",
+        "CNT-001",
+        "CNT-003"
+      ],
+      "rule_count": 30
+    },
+    {
+      "id": "CNT-005",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "03_CONTENT_SYSTEM/CNT-005/CNT-005_SEO_SYSTEM_v2.0.0.md",
+      "sha256": "7a981799e4f70019245ddb069f76125fe4b93c113045fe84f63da558499649cb",
+      "active": true,
+      "depends_on": [
+        "COR-002",
+        "COR-004",
+        "COR-005",
+        "CNT-004"
+      ],
+      "rule_count": 30
+    },
+    {
+      "id": "CNT-006",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "03_CONTENT_SYSTEM/CNT-006/CNT-006_PUBLISHING_SYSTEM_v2.0.0.md",
+      "sha256": "724342fc47fffb94c1b4e8da9e98a2287fe6a7eb2a3845ff3804b748983b97f5",
+      "active": true,
+      "depends_on": [
+        "COR-005",
+        "COR-006",
+        "COR-007",
+        "CNT-005"
+      ],
+      "rule_count": 30
+    },
+    {
+      "id": "CNT-007",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "03_CONTENT_SYSTEM/CNT-007/CNT-007_CONTENT_LIFECYCLE_v2.0.0.md",
+      "sha256": "8a33b913ad4053310bf60262155f4d3c31f365d4b69d6f342bbf7a7fd3229faa",
+      "active": true,
+      "depends_on": [
+        "COR-005",
+        "COR-006",
+        "COR-007",
+        "CNT-006"
+      ],
+      "rule_count": 30
+    },
+    {
+      "id": "AUT-001",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "04_AUTOMATION/AUT-001/AUT-001_AUTOMATION_ARCHITECTURE_v2.0.0.md",
+      "sha256": "200d182b1c408eb3521199364a80fdf0004f430ef9841c18717988a1b21d1c54",
+      "active": true,
+      "depends_on": [
+        "COR-005",
+        "COR-006",
+        "COR-007",
+        "COR-008",
+        "CNT-007"
+      ],
+      "rule_count": 30
+    },
+    {
+      "id": "AUT-002",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "04_AUTOMATION/AUT-002/AUT-002_SCHEDULE_POLICY_v2.0.0.md",
+      "sha256": "4bfd3f2ada7d5476916cef1af5d07386e03d87596472a9d0e07ad23a28b9c5d1",
+      "active": true,
+      "depends_on": [
+        "COR-007",
+        "COR-008",
+        "CNT-007",
+        "AUT-001"
+      ],
+      "rule_count": 30
+    },
+    {
+      "id": "AUT-003",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "04_AUTOMATION/AUT-003/AUT-003_PROMPT_SYSTEM_v2.0.0.md",
+      "sha256": "62ed6051631812181e1c325d4fc11945d8c74ef3306f4d92767f9e55e6db9477",
+      "active": true,
+      "depends_on": [
+        "COR-001",
+        "COR-008",
+        "AUT-001",
+        "AUT-002"
+      ],
+      "rule_count": 30
+    },
+    {
+      "id": "AUT-003",
+      "version": "2.0.1-rc.1",
+      "status": "REVIEW",
+      "path": "04_AUTOMATION/AUT-003/AUT-003_PROMPT_SYSTEM_v2.0.1-rc.1.md",
+      "sha256": "4eeac7ab8989591d8947e18f78d42b6ba20c913c56619cf83dc8c95ffdd1138c",
+      "active": false,
+      "depends_on": [
+        "COR-001",
+        "COR-008",
+        "AUT-001",
+        "AUT-002"
+      ],
+      "rule_count": 30
+    },
+    {
+      "id": "AUT-004",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "04_AUTOMATION/AUT-004/AUT-004_FAILURE_RECOVERY_v2.0.0.md",
+      "sha256": "c9ada6c7d060a8d69823f8919ef98f9b1896eef852d43d0756be467a3d02f3e4",
+      "active": true,
+      "depends_on": [
+        "COR-005",
+        "COR-006",
+        "COR-007",
+        "AUT-001",
+        "AUT-002",
+        "AUT-003"
+      ],
+      "rule_count": 30
+    },
+    {
+      "id": "AUT-005",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "04_AUTOMATION/AUT-005/AUT-005_QA_AUTOMATION_v2.0.0.md",
+      "sha256": "f1c19551a57086c8d20d5d03001b3987bb28342df3fd27e6543563e6782c84e7",
+      "active": true,
+      "depends_on": [
+        "COR-005",
+        "COR-006",
+        "COR-007",
+        "AUT-001",
+        "AUT-003",
+        "AUT-004"
+      ],
+      "rule_count": 30
+    },
+    {
+      "id": "AUT-006",
+      "version": "2.0.0",
+      "status": "LOCKED",
+      "path": "04_AUTOMATION/AUT-006/AUT-006_RUNBOOK_v2.0.0.md",
+      "sha256": "9fd4320294790072a5c52ba610e6768acc16ccc926f0f6d96a053acacecf9721",
+      "active": true,
+      "depends_on": [
+        "COR-005",
+        "COR-006",
+        "COR-007",
+        "COR-008",
+        "AUT-001",
+        "AUT-002",
+        "AUT-003",
+        "AUT-004",
+        "AUT-005"
+      ],
+      "rule_count": 30
+    }
+  ]
+}
