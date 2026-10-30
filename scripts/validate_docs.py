@@ -9,6 +9,22 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+PRIVATE_DIRECTORIES = {
+    Path('local-work'), Path('tmp'), Path('05_PROJECTS'), Path('07_QA'), Path('08_HISTORY'),
+    Path('06_LIBRARY/PROMPTS/PROJECTS'), Path('06_LIBRARY/TEMPLATES'),
+}
+IGNORED_DIRECTORY_NAMES = {'.git', '.venv', 'node_modules', '__pycache__', '.playwright-mcp'}
+
+
+def public_markdown_files(root: Path):
+    """Prune local/private areas before traversing or reading their contents."""
+    for directory, subdirectories, filenames in root.walk():
+        subdirectories[:] = [name for name in subdirectories
+                             if name not in IGNORED_DIRECTORY_NAMES
+                             and (directory / name).relative_to(root) not in PRIVATE_DIRECTORIES]
+        for name in filenames:
+            if name.lower().endswith('.md'):
+                yield directory / name
 
 
 def sha256(path: Path) -> str:
@@ -37,7 +53,8 @@ def validate(root: Path) -> list[str]:
     except (OSError, ValueError) as exc:
         return [f"Registry: {exc}"]
     documents = registry.get('documents', [])
-    seen_entries, active_ids, rules = set(), set(), {}
+    seen_entries, rules = set(), {}
+    active_documents = {}
     states = {'DRAFT', 'REVIEW', 'APPROVED', 'LOCKED', 'DEPRECATED', 'ARCHIVED'}
     registered_paths = set()
     for doc in documents:
@@ -55,9 +72,9 @@ def validate(root: Path) -> list[str]:
         if not re.fullmatch(r'\d+\.\d+\.\d+(?:-[a-z]+\.\d+)?', doc['version']):
             errors.append(f"{label}: invalid version")
         if doc['active']:
-            if doc['id'] in active_ids:
+            if doc['id'] in active_documents:
                 errors.append(f"{label}: multiple active baselines")
-            active_ids.add(doc['id'])
+            active_documents.setdefault(doc['id'], []).append(doc)
         path = root / doc['path']
         registered_paths.add(doc['path'])
         if not path.is_file():
@@ -84,9 +101,7 @@ def validate(root: Path) -> list[str]:
     for path in root.glob('0[1-4]_*/**/*_v*.md'):
         if path.relative_to(root).as_posix() not in registered_paths:
             errors.append(f"Unregistered document: {path.relative_to(root)}")
-    for path in root.rglob('*.md'):
-        if any(p in {'.git', '.venv', 'node_modules'} for p in path.relative_to(root).parts):
-            continue
+    for path in public_markdown_files(root):
         text = path.read_text(encoding='utf-8')
         # Local Markdown targets; external URL availability is deliberately not tested.
         for target in re.findall(r'\[[^\]]*\]\(([^)]+)\)', text):
@@ -114,6 +129,11 @@ def validate(root: Path) -> list[str]:
         if len(actual_sections) != len(rows):
             errors.append('Runtime: section count mismatch')
         for index, (doc_id, source_path, section, source_hash) in enumerate(rows):
+            baselines = active_documents.get(doc_id, [])
+            if len(baselines) != 1:
+                errors.append(f'Runtime: {doc_id} requires exactly one active baseline')
+            elif (source_path, source_hash) != (baselines[0]['path'], baselines[0]['sha256']):
+                errors.append(f"Runtime: {doc_id} source does not match active baseline {baselines[0]['version']}")
             source = root / source_path
             if sha256(source) != source_hash:
                 errors.append(f'Runtime: {doc_id} source hash mismatch')

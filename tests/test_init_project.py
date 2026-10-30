@@ -55,6 +55,12 @@ class InitProjectTests(unittest.TestCase):
                 initialize(self.destination, **(self.settings | changes))
             self.assertFalse(self.destination.exists())
 
+    def test_unencodable_later_file_creates_nothing(self):
+        # project.json is encodable; request.json must fail before either is written.
+        with self.assertRaises(UnicodeEncodeError):
+            initialize(self.destination, **(self.settings | dict(source_text='draft \ud800')))
+        self.assertFalse(self.destination.exists())
+
     def test_parent_traversal_is_rejected(self):
         with self.assertRaisesRegex(ValueError, 'parent traversal'):
             initialize(self.destination / '..' / 'escaped', **self.settings)

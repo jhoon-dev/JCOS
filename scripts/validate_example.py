@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -47,6 +48,13 @@ def validate(path: Path, root: Path = ROOT) -> list[str]:
         project = json.loads(project_path.read_text(encoding='utf-8'))
         if not isinstance(project, dict):
             return errors + ['Project must be an object']
+        for field in ('project_id', 'name', 'purpose'):
+            if not isinstance(project.get(field), str) or not project[field].strip():
+                errors.append(f'Missing or invalid project.{field}')
+        project_id = project.get('project_id')
+        if isinstance(project_id, str) and project_id.strip():
+            if not re.fullmatch(r'[a-z][a-z0-9]*(?:-[a-z0-9]+)*', project_id):
+                errors.append('project.project_id must be a lowercase ASCII slug')
         if project.get('scope') != 'LOCAL_INTERNAL_DRAFT' or project.get('external_side_effects') is not False:
             errors.append('Project must be a local internal draft without external side effects')
         if project.get('master') is not None:

@@ -70,6 +70,26 @@ class PrepareWorkTests(unittest.TestCase):
             prepare(self.request, self.destination)
         self.assertFalse(self.destination.exists())
 
+    def test_missing_project_identity_creates_no_output(self):
+        path = self.request.parent / 'project.json'
+        original = json.loads(path.read_text(encoding='utf-8'))
+        for field in ('project_id', 'name', 'purpose'):
+            with self.subTest(field=field):
+                project = dict(original)
+                project.pop(field)
+                path.write_text(json.dumps(project), encoding='utf-8')
+                with self.assertRaisesRegex(ValueError, f'Missing or invalid project[.]{field}'):
+                    prepare(self.request, self.destination)
+                self.assertFalse(self.destination.exists())
+
+    def test_unencodable_source_creates_no_output_and_preserves_input(self):
+        self.mutate_request(lambda d: d.update(source_text='draft \ud800'))
+        before = self.request.read_bytes()
+        with self.assertRaises(UnicodeEncodeError):
+            prepare(self.request, self.destination)
+        self.assertFalse(self.destination.exists())
+        self.assertEqual(self.request.read_bytes(), before)
+
     def test_escaping_project_reference_creates_no_output(self):
         self.mutate_request(lambda d: d.update(project_ref='../outside.json'))
         with self.assertRaisesRegex(ValueError, 'must stay inside'):

@@ -26,6 +26,8 @@ def write_json_files(destination: Path, files: dict) -> Path:
         if Path(name).name != name or not name.endswith('.json'):
             raise ValueError('Output filenames must be plain JSON filenames')
         texts[name] = json.dumps(data, ensure_ascii=False, indent=2) + '\n'
+        # Check every output before creating the directory or writing earlier files.
+        texts[name].encode('utf-8')
     destination.mkdir(parents=True, exist_ok=False)
     created = []
     try:
@@ -34,7 +36,7 @@ def write_json_files(destination: Path, files: dict) -> Path:
             with target.open('x', encoding='utf-8', newline='\n') as stream:
                 created.append(target)
                 stream.write(text)
-    except OSError as exc:
+    except (OSError, UnicodeError) as exc:
         try:
             for target in reversed(created):
                 target.unlink()
